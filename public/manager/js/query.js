@@ -38,7 +38,7 @@ showDetails()
 approve.addEventListener('click', async () => {
     await approveTkt({
         m_id: JSON.parse(localStorage.getItem('m_id')),
-        t_id: ticket.approval_id,
+        t_id: ticket.t_id,
     })
     window.location.href = 'approvals.html'
 })
@@ -46,7 +46,7 @@ approve.addEventListener('click', async () => {
 reject.addEventListener('click', async () => {
     await rejectTkt({
         m_id: JSON.parse(localStorage.getItem('m_id')),
-        t_id: ticket.approval_id,
+        t_id: ticket.t_id,
     })
     window.location.href = 'approvals.html'
 })

@@ -61,26 +61,34 @@ export const httpStep5 = async payload => {
 }
 
 export const getStatus = async payload => {
-    const data = await fetch(`${URL}/manager/checkStatus`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-    })
+    const data = await fetch(
+        `${URL}/manager/checkStatus?t_id=${payload.t_id}`,
+        {
+            method: 'GET',
+            // method: 'POST',
+            // body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
     let res = await data.text()
     localStorage.setItem('refreshed', res)
     console.log(res)
 }
 
 export const downloadPDF = async payload => {
-    const data = await fetch(`${URL}/letter/download`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload),
-    })
+    const data = await fetch(
+        `${URL}/letter/download?fileName=${payload.fileName}`,
+        {
+            method: 'GET',
+            // method: 'POST',
+            // body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
     let res = await data.text()
     console.log(res)
     alert('PDF Downloaded')

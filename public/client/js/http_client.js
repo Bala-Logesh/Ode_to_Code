@@ -36,3 +36,20 @@ export const raiseQuery = async payload => {
     console.log(res);
 }
 
+export const getAllQueries = async payload => {
+    const data = await fetch(
+        `${URL}/client/getAllQueries?c_id=${payload.c_id}`,
+        {
+            method: 'GET',
+            // method: 'POST',
+            // body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
+    let res = await data.json()
+    localStorage.setItem('queries', res)
+}
+
+

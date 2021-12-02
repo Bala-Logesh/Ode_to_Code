@@ -1,7 +1,7 @@
 import { URL } from '/js/data.js'
 
 export const loginManager = async payload => {
-    const data = await fetch(`${URL}/manager/login`, {
+    const data = await fetch(`${URL}/manager/login?soeid=${payload.m_id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -13,22 +13,26 @@ export const loginManager = async payload => {
 }
 
 export const getAllApprovals = async payload => {
-    const data = await fetch(`${URL}/manager/getAllApprovals`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `${payload.m_id}`,
-        },
-        body: JSON.stringify({
-            customer_id: payload.m_id,
-        }),
-    })
+    const data = await fetch(
+        `${URL}/manager/getAllApprovals?m_id=${payload.m_id}`,
+        {
+            method: 'GET',
+            // method: 'POST',
+            // body: JSON.stringify({
+            //     customer_id: payload.m_id,
+            // }),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `${payload.m_id}`,
+            },
+        }
+    )
     let res = await data.json()
     localStorage.setItem('tickets_m', JSON.stringify(res))
 }
 
 export const approveTkt = async payload => {
-    const data = await fetch(`${URL}/manager/accept`, {
+    const data = await fetch(`${URL}/manager/accept?t_id=${payload.t_id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -43,7 +47,7 @@ export const approveTkt = async payload => {
 }
 
 export const rejectTkt = async payload => {
-    const data = await fetch(`${URL}/manager/reject`, {
+    const data = await fetch(`${URL}/manager/reject?t_id=${payload.t_id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

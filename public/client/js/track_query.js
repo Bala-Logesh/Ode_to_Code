@@ -5,14 +5,17 @@ const table = document.querySelector('#table')
 const createRow = (query, index) => {
     const row = document.createElement('tr')
     let status = 'Pending Approval'
-    let col = 'red'
+    let col
 
-    if (localStorage.getItem(query.query_id) === 'approved') {
-        status = '<a href="#" class="green">Completed. Click to see the response<a>'
+    if (query.status === 'Approved') {
+        status = query.status
         col = 'green'
+    } else if (query.status === 'Rejected') {
+        status = query.status
+        col = 'red'
     } else {
         status = 'Under Process'
-        col = 'red'
+        color= 'black'
     }
 
     row.innerHTML = `
@@ -23,7 +26,7 @@ const createRow = (query, index) => {
             <td style="color: ${col};">
                 ${status}
             </td>
-            <td class='link'><a href="query.html?q_id=${query.query}">View Details</a></td>
+            <td>${query.agent_phone_no}</td>
         </tr>
     `
     table.appendChild(row)
