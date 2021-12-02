@@ -35,3 +35,4 @@ export const raiseQuery = async payload => {
     let res = await data.json()
     console.log(res);
 }
+

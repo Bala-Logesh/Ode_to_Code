@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" href="/css/index.css" />
         <link rel="stylesheet" href="/css/client.css" />
+        <link rel="stylesheet" href="/css/query.css" />
 
         <title>Manager Website</title>
     </head>
@@ -23,27 +24,21 @@
                     <a href="index.html" class="title" id="title"></a>
                 </nav>
             </div>
-            <div
-                id="form"
-                class="form flex-col"
-            >
-                <h3 class="title">Manager Login</h3>
-                <input
-                    type="text"
-                    name="soeid"
-                    id="soeid"
-                    placeholder="Enter soeid"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter password"
-                />
-                <button class="button" id="mLoginBtn">Login as Manager</button>
+
+             <div class="container">
+                <h3>This is the details for the ticket <span id="tid"></span></h3>
+
+                <table class="query-details customer-details flex-column" id="ticket_details"></table>
+
+                <div class="btn-group flex" style="gap: 20px;">
+                    <button id="approve" class="success">Approve</button>
+                    <button id="reject" class="danger">Reject</button>
+                    <a id="back" href="approvals.html" class="button back">Back</a>
+                </div>
             </div>
         </div>
+
         <script src="./js/script.js"></script>
-        <script src="./js/login.js" type="module"></script>
+        <script src="./js/query.js" type="module"></script>
     </body>
 </html>

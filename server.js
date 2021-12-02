@@ -3,6 +3,7 @@ import path from 'path'
 import admin from './routes/admin.js'
 import checker from './routes/checker.js'
 import client from './routes/client.js'
+import manager from './routes/manager.js'
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 app.use('/admin', admin)
 app.use('/checker', checker)
 app.use('/client', client)
+app.use('/manager', manager)
 
 app.get('/test', (req, res) => {
     console.log('Invoked')

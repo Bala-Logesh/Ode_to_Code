@@ -7,8 +7,7 @@ const aLoginBtn = document.querySelector('#aLoginBtn')
 aLoginBtn.addEventListener('click', async () => {
     if (soeid.value) {
         let admin = {
-            soeid: soeid.value,
-            pwd: pwd.value,
+            soeid: soeid.value
         }
         await loginAdmin(admin)
         window.location.href = 'customer_details.html'

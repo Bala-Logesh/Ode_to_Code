@@ -23,27 +23,23 @@
                     <a href="index.html" class="title" id="title"></a>
                 </nav>
             </div>
-            <div
-                id="form"
-                class="form flex-col"
-            >
-                <h3 class="title">Manager Login</h3>
-                <input
-                    type="text"
-                    name="soeid"
-                    id="soeid"
-                    placeholder="Enter soeid"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter password"
-                />
-                <button class="button" id="mLoginBtn">Login as Manager</button>
+
+            <div class="container">
+                <h3 class="title">Track your approvals</h3>
+                <br>
+                <table id="tickets" class="tasks">
+                    <tr>
+                        <th>Sl. No</th>
+                        <th>Approval Id</th>
+                        <th>Letter Name</th>
+                        <th>Status</th>
+                        <th>View More</th>
+                    </tr>
+                </table>
             </div>
         </div>
+
         <script src="./js/script.js"></script>
-        <script src="./js/login.js" type="module"></script>
+        <script src="./js/approvals.js" type="module"></script>
     </body>
 </html>

@@ -5,17 +5,17 @@ const desc = document.querySelector('#desc')
 const subQueryBtn = document.querySelector('#subQueryBtn')
 
 const letters = [
-    'FATCA',
-    'Power of Attorney',
-    'Demo Maintenance',
-    'Citi Biz Ac/Closure',
-    'MPP - Citibiz',
+    { key: 'fatca', value: 'FATCA' },
+    { key: 'poa', value: 'Power of Attorney' },
+    { key: 'demo_maintainence', value: 'Demo Maintenance' },
+    { key: 'biz', value: 'Citi Biz Ac/Closure' },
+    { key: 'mpp', value: 'MPP - Citibiz' },
 ]
 
 letters.map(letter => {
     let op = document.createElement('option')
-    op.value = letter
-    op.innerHTML = letter
+    op.value = letter.key
+    op.innerHTML = letter.value
     letter_type.appendChild(op)
 })
 

@@ -18,7 +18,7 @@ const createRow = (query, index) => {
     row.innerHTML = `
         <tr>
             <td>${index + 1}</td>
-            <td class='link'>${query.query}</td>
+            <td>${query.query}</td>
             <td>${query.desc}</td>
             <td style="color: ${col};">
                 ${status}
