@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/client.css" />
+        <link rel="stylesheet" href="/css/query.css" />
+
+        <title>Checker Website</title>
+    </head>
+    <body>
+        <div class="two-row-grid">
+            <div class="nav-container">
+                <nav class="navbar flex-jcsb">
+                    <a href="/index.html"
+                        ><img
+                            class="logo"
+                            src="../images/citi.png"
+                            alt="Citi Logo"
+                    /></a>
+                    <h3 class="title">Checker Page</h3>
+                </nav>
+            </div>
+            <div class="container">
+                <h3>Checking steps in process</h3>
+                <br />
+                <br />
+                <table
+                    class="customer-details flex-column tasks"
+                    id="checker_steps"
+                >
+                    <tr>
+                        <th style="width: 200px">Step Number</th>
+                        <th>Step Name</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Step 1</td>
+                        <td>Agent Match Validation</td>
+                        <td id="step1">Status</td>
+                    </tr>
+                    <tr>
+                        <td>Step 2</td>
+                        <td>Query Info Validation</td>
+                        <td id="step2">Status</td>
+                    </tr>
+                    <tr>
+                        <td>Step 3</td>
+                        <td>Client Past Profile Validation</td>
+                        <td id="step3">Status</td>
+                    </tr>
+                    <tr>
+                        <td>Step 4</td>
+                        <td>Client PII Validation</td>
+                        <td id="step4">Status</td>
+                    </tr>
+                    <tr>
+                        <td>Step 5</td>
+                        <td>Manager Approval</td>
+                        <td id="step5">Status</td>
+                    </tr>
+                </table>
+                <br /><br />
+                <button class="button" id="refresh">Refresh</button>
+                <button class="button" id="download">Download PDF</button>
+            </div>
+        </div>
+        <script src="./js/script.js" type="module"></script>
+    </body>
+</html>

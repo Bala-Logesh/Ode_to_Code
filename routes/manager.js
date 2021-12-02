@@ -23,7 +23,7 @@ router.post('/reject', (req, res) => {
 
 router.post('/checkStatus', (req, res) => {
     console.log(req.body)
-    res.send('Approved | Pending')
+    res.send('Rejected')
 })
 
 router.post('/getAllApprovals', (req, res) => {
