@@ -42,3 +42,16 @@ export const getLetterVariables = async payload => {
     localStorage.setItem('letter_vars', JSON.stringify(res))
     console.log(res);
 }
+
+export const generateLetter = async payload => {
+    const data = await fetch(`${URL}/letter/generateLetter`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `${payload.a_id}`,
+        },
+        body: JSON.stringify(payload),
+    })
+    let res = await data.text()
+    console.log(res)
+}

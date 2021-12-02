@@ -1,4 +1,4 @@
-import { getLetterVariables } from './http_admin.js'
+import { getLetterVariables, generateLetter } from './http_admin.js'
 
 const letter_type = document.querySelector('#letter_type')
 const var1 = document.querySelector('#var1')
@@ -58,6 +58,21 @@ const populateVariables = () => {
 }
 
 postLetter.addEventListener('click', () => {
+    let payload = {}
+    if (l_no === 1 || l_no === 2) {
+        payload = {
+            l_id: l_no,
+            c_id: localStorage.getItem('client_id'),
+            l_var: [date.value]
+        }
+    } else if (l_no === 3) {
+        payload = {
+            l_id: l_no,
+            c_id: localStorage.getItem('client_id'),
+            l_var: [var1.value, var2.value, date.value],
+        }
+    }
+    generateLetter(payload)
     window.location.href = '/checker/index.html'
 })
 
