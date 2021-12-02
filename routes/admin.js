@@ -1,8 +1,13 @@
 import express from 'express'
 const router = express.Router()
 
-router.get('/getCustomerDetails/:customer_id', (req, res) => {
-    console.log('customer_id - ' + req.params.customer_id)
+router.post('/login', (req, res) => {
+    console.log(req.body)
+    res.send({ a_id: 5464353245 })
+})
+
+router.post('/getCustomerDetails', (req, res) => {
+    console.log(req.body, req.headers)
     res.send({
         firstname: 'Bala',
         lastname: 'Logesh',
@@ -14,7 +19,8 @@ router.get('/getCustomerDetails/:customer_id', (req, res) => {
     })
 })
 
-router.get('/getLetterVariables/:letter_name', (req, res) => {
+router.post('/getLetterVariables', (req, res) => {
+    console.log(req.body, req.headers)
     res.send([
         {
             variables:
@@ -22,7 +28,7 @@ router.get('/getLetterVariables/:letter_name', (req, res) => {
         },
         {
             variables:
-                'Form W-8BEN/Form W-9 Reasonable written taplanation (applicable if completing w-BBEN, Copy of Passport (please sign on copy & applicable to Non-Singaporean). Abandonment of Lawful Permanent Resident status, Certificate of Loss of Nationality',
+                'Form W-8BEN/Form W-9, Reasonable written taplanation (applicable if completing w-BBEN), Copy of Passport (please sign on copy & applicable to Non-Singaporean), Abandonment of Lawful Permanent Resident status, Certificate of Loss of Nationality',
         },
         {
             variables: 'Embed Date',

@@ -1,0 +1,33 @@
+.query-details {
+    max-width: 1200px;
+    margin: 30px auto;
+    border: none;
+    text-align: left;
+}
+
+.query-details > tr {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    padding: 10px;
+}
+
+.customer-details > tr {
+    display: grid;
+    grid-template-columns: 180px 400px;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.query-details * {
+    border: none;
+}
+
+.btn-group {
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.customer-form{
+    gap: 20px;
+    margin: 40px auto;
+}

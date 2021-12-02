@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/query.css" />
+
+        <title>Admin Website</title>
+    </head>
+    <body>
+        <div class="two-row-grid">
+            <div class="nav-container">
+                <nav class="navbar flex-jcsb">
+                    <img
+                        class="logo"
+                        src="../images/citi.png"
+                        alt="Citi Logo"
+                    />
+                    <a href="index.html" class="title" id="title"></a>
+                </nav>
+            </div>
+            <div class="container">
+                <h3 class="title">Generate the Letter</h3>
+                <div class="customer-form flex-col">
+                    <select name="letter" id="letter_type">
+                        <option value="default" selected>Click and select a letter type</option>
+                    </select>
+
+                    <button class="button" id="getLetterVarBtn">
+                        Get Letter Variables
+                    </button>
+                </div>
+                <hr>
+                <div class="customer-form flex-col" id="let_vars_container">
+                    <select name="letter" id="var1" class="hidden">
+                        <option value="default" selected>Click and select the change</option>
+                    </select>
+                    <select name="letter" id="var2" class="hidden">
+                        <option value="default" selected>Click and select the letter to generate</option>
+                    </select>
+                    <select name="letter" id="var3" class="hidden"></select>
+                    <input type="date" id="date" name="embed_date" class="hidden">
+
+                    <div id="btnDiv" class="hidden"><button class="button" id="getLetterVarBtn">
+                        Post the request
+                    </button></div>
+                </div>                
+            </div>
+        </div>
+        <script src="./js/script.js"></script>
+        <script src="./js/letter.js" type="module"></script>
+    </body>
+</html>

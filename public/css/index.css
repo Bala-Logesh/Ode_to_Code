@@ -14,7 +14,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
     text-align: center;
     color: inherit;
@@ -94,7 +94,7 @@ textarea,
 }
 
 select,
-textarea{
+textarea {
     font: inherit;
     outline: none;
     -webkit-appearance: none;
@@ -160,14 +160,18 @@ input:active {
     border: 2px solid #003b70;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Grid */
-.two-row-grid{
+.two-row-grid {
     display: grid;
     grid-template-rows: auto 1fr;
     height: 100vh;
 }
 
-.two-column-grid{
+.two-column-grid {
     display: grid;
     grid-template-columns: 300px 1fr;
     max-width: 1200px;
