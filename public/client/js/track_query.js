@@ -1,3 +1,9 @@
+import { getAllQueries } from './http_client.js'
+
+getAllQueries({
+    c_id: localStorage.getItem('client_id'),
+})
+
 let queries = JSON.parse(localStorage.getItem('queries')) || []
 
 const table = document.querySelector('#table')
@@ -15,7 +21,7 @@ const createRow = (query, index) => {
         col = 'red'
     } else {
         status = 'Under Process'
-        color= 'black'
+        color = 'black'
     }
 
     row.innerHTML = `
@@ -32,5 +38,4 @@ const createRow = (query, index) => {
     table.appendChild(row)
 }
 
-console.log(queries);
-queries.forEach(((query, index) => createRow(query, index)))
+queries.forEach((query, index) => createRow(query, index))
