@@ -72,6 +72,7 @@ export const getStatus = async payload => {
     localStorage.setItem('refreshed', res)
     console.log(res)
 }
+
 export const downloadPDF = async payload => {
     const data = await fetch(`${URL}/letter/download`, {
         method: 'POST',

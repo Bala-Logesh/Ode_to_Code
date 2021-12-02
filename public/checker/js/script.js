@@ -91,8 +91,10 @@ const performStep5 = async () => {
 
 performStep1()
 
-download.addEventListener('click', () => {
-    downloadPDF()
+download.addEventListener('click', async () => {
+    await downloadPDF({
+        fileName: `${localStorage.getItem('t_id')}.pdf`,
+    })
 })
 
 refresh.addEventListener('click', async () => {
@@ -102,7 +104,9 @@ refresh.addEventListener('click', async () => {
 
     if (localStorage.getItem('refreshed') === 'Approved') {
         step5.innerHTML = 'Approved'
-    } else {
+    } else if (localStorage.getItem('refreshed') === 'Rejected') {
         step5.innerHTML = 'Rejected'
+    } else {
+        step5.innerHTML = 'Approval Pending'
     }
 })
