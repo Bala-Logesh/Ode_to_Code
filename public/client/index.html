@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/client.css" />
+
+        <title>Client Website</title>
+    </head>
+    <body>
+        <div class="two-row-grid">
+            <div class="nav-container">
+                <nav class="navbar flex-jcsb">
+                    <img
+                        class="logo"
+                        src="../images/citi.png"
+                        alt="Citi Logo"
+                    />
+                    <a href="index.html" class="title" id="title"></a>
+                </nav>
+            </div>
+            <div
+                id="form"
+                method="post"
+                autocomplete="off"
+                class="form flex-col"
+            >
+                <h3 class="title">Customer Login</h3>
+                <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="Enter email"
+                />
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter password"
+                />
+                <button class="button" id="cLoginBtn">Login</button>
+
+                <p>
+                    New here,
+                    <a href="signup.html" class="link">click here</a> to create
+                    a account
+                </p>
+            </div>
+        </div>
+        <script src="./js/script.js"></script>
+        <script src="./js/login.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/client.css" />
+
+        <title>Customer Website</title>
+    </head>
+    <body>
+        <div class="two-row-grid">
+            <div class="nav-container">
+                <nav class="navbar flex-jcsb">
+                    <img
+                        class="logo"
+                        src="../images/citi.png"
+                        alt="Citi Logo"
+                    />
+                    <a href="index.html" class="title" id="title"></a>
+                </nav>
+            </div>
+            <div
+                id="form"
+                autocomplete="off"
+                class="form flex-col"
+            >
+                <h3 class="title">Customer Sign Up</h3>
+                <div class="flex">
+                    <input
+                        type="text"
+                        name="fname"
+                        id="fname"
+                        placeholder="Enter first name"
+                    />
+                    <input
+                        type="text"
+                        name="lname"
+                        id="lname"
+                        placeholder="Enter last name"
+                    />
+                </div>
+                <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="Enter email"
+                />
+                <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="Enter address"
+                />
+                <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    placeholder="Enter nationality"
+                />
+                <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    placeholder="Enter phone number"
+                />
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter password"
+                />
+                <input
+                    type="password"
+                    name="password2"
+                    id="password2"
+                    placeholder="Reenter password"
+                />
+                <button class="button" id="signupBtn">Sign up</button>
+
+                <p>Already have an account, <a href="index.html" class="link">click here</a> to login</p>
+            </div>
+        </div>
+
+        <script src="./js/script.js"></script>
+        <script src="./js/signup.js" type="module"></script>
+    </body>
+</html>

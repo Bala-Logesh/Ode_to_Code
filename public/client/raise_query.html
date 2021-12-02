@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/client.css" />
+
+        <title>Customer Website</title>
+    </head>
+    <body>
+        <div class="two-row-grid">
+            <div class="nav-container">
+                <nav class="navbar flex-jcsb">
+                    <img
+                        class="logo"
+                        src="../images/citi.png"
+                        alt="Citi Logo"
+                    />
+                    <a href="index.html" class="title" id="title"></a>
+                </nav>
+            </div>
+            <div class="two-column-grid">
+                <div class="menu flex-col">
+                    <h3 class="title">Main Menu</h3>
+                    <br />
+                    <a href="details.html" class="button">Customer Details</a>
+                    <a href="raise_query.html" class="button active">Raise a query</a>
+                    <a href="track_query.html" class="button">Track Queries</a>
+                    <a href="faq.html" class="button">FAQ</a>
+                </div>
+                <di class="client-container flex-col">
+                    <h3 class="title">Raise a query</h3>
+                    <div
+                        id="form"
+                        autocomplete="off"
+                        class="form flex-col raise-query"
+                    >
+                        <select name="letter" id="letter_type">
+                            <option value="default" selected>Click and select a query type</option>
+                        </select>
+                        <textarea
+                            rows="5" cols="30" 
+                            name="desc"
+                            id="desc"
+                            placeholder="Enter description"
+                        ></textarea>
+                        <button class="button" id="subQueryBtn">Submit Query</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./js/script.js"></script>
+        <script src="./js/raise_query.js" type="module"></script>
+    </body>
+</html>
+
