@@ -1,6 +1,9 @@
 import express from 'express'
 import Approval from '../models/approval.js'
+import Client from '../models/client.js'
+import Agent from '../models/agent.js'
 import Manager from '../models/manager.js'
+import Letter from '../models/letter.js'
 import Query from '../models/query.js'
 
 const router = express.Router()
@@ -60,42 +63,72 @@ router.post('/assignManager', async (req, res) => {
     })
 })
 
-TODO:
-router.post('/accept', (req, res) => {
-    console.log(req.body)
+// @route POST /manager/accept?t_id=t_id
+// @desc Accept the ticket
+// @access Public
+router.post('/accept', async (req, res) => {
+    const t_id = req.query.t_id
+    let approval = await Approval.findByTId(t_id)
+    let query = await Query.findById(t_id)
+
+    await Approval.findByIdAndUpdate(approval[0]._id, { m_status: 'Approved' })
+    await Query.findByIdAndUpdate(query._id, { status: 'Done' })
     res.send('Ticket Approved')
 })
 
-TODO:
-router.post('/reject', (req, res) => {
-    console.log(req.body)
+// @route POST /manager/reject?t_id=t_id
+// @desc Reject the ticket
+// @access Public
+router.post('/reject', async (req, res) => {
+    const t_id = req.query.t_id
+    let approval = await Approval.findByTId(t_id)
+    let query = await Query.findById(t_id)
+
+    await Approval.findByIdAndUpdate(approval[0]._id, { m_status: 'Rejected' })
+    await Query.findByIdAndUpdate(query._id, { status: 'Approval' })
     res.send('Ticket Rejected')
 })
 
-TODO:
-router.post('/checkStatus', (req, res) => {
-    console.log(req.body)
-    res.send('Rejected')
+// @route GET /manager/checkStatus?t_id=t_id
+// @desc Check the status of the ticket
+// @access Public
+router.get('/checkStatus', async (req, res) => {
+    const t_id = req.query.t_id
+    let approval = await Approval.findByTId(t_id)
+    if (approval.length > 0) res.send(approval[0].m_status)
 })
 
-TODO:
-router.get('/getAllApprovals', (req, res) => {
-    console.log(req.body)
-    res.send([
-        {
-            approval_id: 2,
-            t_id: 7,
-            cust_firstname: 'Bala',
-            cust_lastname: 'Logesh',
-            agent_firstname: 'Yavvana Shri',
-            agent_lastname: 'K',
-            agent_soeid: 'YK48322',
-            query: 'Customer has removed US address. Primary address is in Singapore',
-            letter_name: '30th Day',
-            reason: 'Fatca',
-            status: 'Pending',
-        },
-    ])
+// @route GET /manager/getAllApprovals?m_id=m_id
+// @desc Check the status of the ticket
+// @access Public
+router.get('/getAllApprovals', async (req, res) => {
+    const m_id = req.query.m_id
+    let approvals = await Approval.findByMId(m_id)
+    console.log(approvals);
+    let output = []
+    for await (let approval of approvals) {
+        const ticket = await Query.findById(approval.t_id)
+        const customer = await Client.findById(ticket.c_id)
+        const agent = await Agent.findById(ticket.a_id)
+        const letter = await Letter.findOneByLetterId(ticket.l_id)
+        
+        let obj = {
+            approval_id: approval._id,
+            t_id: ticket.t_id,
+            cust_firstname: customer.firstname,
+            cust_lastname: customer.lastname,
+            agent_firstname: agent.firstname,
+            agent_lastname: agent.lastname,
+            agent_soeid: agent.soeid,
+            query: ticket.query,
+            letter_name: letter.letter_name,
+            reason: ticket.desc,
+            status: ticket.status,
+        }
+
+        output.push(obj)
+    }
+    res.send(output)
 })
 
 export default router

@@ -14,13 +14,21 @@ const approveSchema = new mongoose.Schema({
     m_status: {
         type: String,
         default: 'Pending',
-        enum: ['Pending', 'Approval'],
+        enum: ['Pending', 'Approved', 'Rejected'],
     },
     approval_time: {
         type: Date,
         default: new Date(new Date().getTime() + 86400000),
     },
 })
+
+approveSchema.statics.findByTId = function (t_id) {
+    return this.find({ t_id })
+}
+
+approveSchema.statics.findByMId = function (m_id) {
+    return this.find({ m_id })
+}
 
 const Approval = mongoose.model('Approval', approveSchema)
 export default Approval
