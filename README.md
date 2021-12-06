@@ -6,3 +6,5 @@ Website built for the Ode To Code Hackathon
 
 1. HTML
 2. CSS
+3. JS
+4. Node JS with Express
