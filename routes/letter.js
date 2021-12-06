@@ -26,7 +26,6 @@ router.post('/variables', async (req, res) => {
 // @desc Generate the letter
 // @access Public
 router.post('/generateLetter', (req, res) => {
-    console.log(req.body)
     res.send('Letter Generated')
 })
 

@@ -89,22 +89,12 @@ router.post('/reject', async (req, res) => {
     res.send('Ticket Rejected')
 })
 
-// @route GET /manager/checkStatus?t_id=t_id
-// @desc Check the status of the ticket
-// @access Public
-router.get('/checkStatus', async (req, res) => {
-    const t_id = req.query.t_id
-    let approval = await Approval.findByTId(t_id)
-    if (approval.length > 0) res.send(approval[0].m_status)
-})
-
 // @route GET /manager/getAllApprovals?m_id=m_id
 // @desc Check the status of the ticket
 // @access Public
 router.get('/getAllApprovals', async (req, res) => {
     const m_id = req.query.m_id
     let approvals = await Approval.findByMId(m_id)
-    console.log(approvals);
     let output = []
     for await (let approval of approvals) {
         const ticket = await Query.findById(approval.t_id)
@@ -129,6 +119,15 @@ router.get('/getAllApprovals', async (req, res) => {
         output.push(obj)
     }
     res.send(output)
+})
+
+// @route GET /manager/checkStatus?t_id=t_id
+// @desc Check the status of the ticket
+// @access Public
+router.get('/checkStatus', async (req, res) => {
+    const t_id = req.query.t_id
+    let approval = await Approval.findByTId(t_id)
+    if (approval.length > 0) res.send(approval[0].m_status)
 })
 
 export default router

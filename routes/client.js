@@ -26,7 +26,6 @@ router.post('/signup', async (req, res) => {
     req.body.password = hash
 
     const client = await Client.create(req.body)
-    console.log(client)
     res.send({ client_id: client._id })
 })
 

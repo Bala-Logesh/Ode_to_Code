@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "ff316429-2c2b-4014-8228-0f85515466c1",
+		"name": "Ode to Code",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create a new agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Ritkl\",\n    \"lastname\": \"Lnbzllc\",\n    \"soeid\":\"RL21044\",\n    \"phone_no\":\"+91 91511 30661\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login an agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/login?soeid=EW73324",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"login"
+							],
+							"query": [
+								{
+									"key": "soeid",
+									"value": "EW73324"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a customer details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "61ae10e07d5e52636bf68be9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/admin/getCustomerDetails?customer_id=61adf933c75f57d4f9f5bcaa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"getCustomerDetails"
+							],
+							"query": [
+								{
+									"key": "customer_id",
+									"value": "61adf933c75f57d4f9f5bcaa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the letter variables",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "61ae10e07d5e52636bf68be9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/admin/getLetterVariables?letter_name=30th%20Day%20%20-%20indicia%20removal%20-%20Singapore%20address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"getLetterVariables"
+							],
+							"query": [
+								{
+									"key": "letter_name",
+									"value": "30th%20Day%20%20-%20indicia%20removal%20-%20Singapore%20address"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checker",
+			"item": [
+				{
+					"name": "Agent Match Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"a_id\": \"61ae117a7d5e52636bf68bed\",\n    \"c_id\": \"61adf933c75f57d4f9f5bcaa\",\n    \"l_id\": 3,\n    \"t_id\": \"61ae3441f956e5eab7037bf9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/checker/step0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checker",
+								"step0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Info Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"a_id\": \"61ae117a7d5e52636bf68bed\",\n    \"c_id\": \"61adf933c75f57d4f9f5bcaa\",\n    \"l_id\": 3,\n    \"t_id\": \"61ae3441f956e5eab7037bf9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/checker/step1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checker",
+								"step1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client Past Profile Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"a_id\": \"61ae117a7d5e52636bf68bed\",\n    \"c_id\": \"61adf933c75f57d4f9f5bcaa\",\n    \"l_id\": 3,\n    \"t_id\": \"61ae3441f956e5eab7037bf9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/checker/step2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checker",
+								"step2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer PII Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Bala\",\n    \"lastname\": \"S\",\n    \"address\": \"No 12, Apt, Chennai\",\n    \"nationality\": \"India\",\n    \"phone_no\": \"9090909090\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/checker/step3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checker",
+								"step3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "Create a new manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mgr_name\":\"Rqehe Nqqgfss\",\n    \"soeid\":\"RN7252\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/manager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login a manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/manager/login?soeid=RN7252",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager",
+								"login"
+							],
+							"query": [
+								{
+									"key": "soeid",
+									"value": "RN7252"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Manager to a ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"a_id\": \"61ae117a7d5e52636bf68bed\",\n    \"c_id\": \"61adf933c75f57d4f9f5bcaa\",\n    \"l_id\": 3,\n    \"t_id\": \"61ae3441f956e5eab7037bf9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/manager/assignManager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager",
+								"assignManager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve a ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/manager/accept?t_id=61ae3441f956e5eab7037bf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager",
+								"accept"
+							],
+							"query": [
+								{
+									"key": "t_id",
+									"value": "61ae3441f956e5eab7037bf9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject a ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/manager/reject?t_id=61ae3441f956e5eab7037bf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager",
+								"reject"
+							],
+							"query": [
+								{
+									"key": "t_id",
+									"value": "61ae3441f956e5eab7037bf9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all approvals of a manager",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/manager/getAllApprovals?m_id=61adcbe7759a7ea72bd55250",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager",
+								"getAllApprovals"
+							],
+							"query": [
+								{
+									"key": "m_id",
+									"value": "61adcbe7759a7ea72bd55250"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check the status of the ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/manager/checkStatus?t_id=61ae3441f956e5eab7037bf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"manager",
+								"checkStatus"
+							],
+							"query": [
+								{
+									"key": "t_id",
+									"value": "61ae3441f956e5eab7037bf9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "SignUp Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Bala\",\n    \"lastname\": \"S\",\n    \"email\": \"bala@gmail.com\",\n    \"address\": \"No 12, Apt, Chennai\",\n    \"nationality\": \"India\",\n    \"phone_no\": \"9090909090\",\n    \"password\": \"asdf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/client/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"client",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bala@gmail.com\",\n    \"pwd\": \"asdf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/client/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"client",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"c_id\": \"61adf933c75f57d4f9f5bcaa\",\n    \"query\": \"Fatca\",\n    \"desc\": \"Address Change\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/client/raiseQuery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"client",
+								"raiseQuery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all queries of client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/client/getAllQueries?c_id=61adf933c75f57d4f9f5bcaa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"client",
+								"getAllQueries"
+							],
+							"query": [
+								{
+									"key": "c_id",
+									"value": "61adf933c75f57d4f9f5bcaa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Letter",
+			"item": [
+				{
+					"name": "Create letter types",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"l_id\": 10,\n    \"letter_name\": \"Authorisation form rejection letter\",\n    \"category\": \"Citi Biz Ac Closure\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/letter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"letter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Letter variables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"l_id\": 3,\n    \"variable\": \"Form W-8BEN/Form W-9, Reasonable written taplanation (applicable if completing w-BBEN), Copy of Passport (please sign on copy & applicable to Non-Singaporean), Abandonment of Lawful Permanent Resident status, Certificate of Loss of Nationality\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/letter/variables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"letter",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate the letter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"l_id\": 1,\n    \"c_id\": 123,\n    \"ap_id\": 123,\n    \"l_var\": [\"One\", \"Two\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/letter/generateLetter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"letter",
+								"generateLetter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download PDF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/letter/download?fileName=1234.pdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"letter",
+								"download"
+							],
+							"query": [
+								{
+									"key": "fileName",
+									"value": "1234.pdf"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
