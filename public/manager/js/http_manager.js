@@ -1,7 +1,9 @@
 import { URL } from '/js/data.js'
 
 export const loginManager = async payload => {
-    const data = await fetch(`${URL}/manager/login?soeid=${payload.m_id}`, {
+    console.log(payload)
+    // const data = await fetch(`${URL}/manager/login?soeid=${payload.soeid}`, {
+    const data = await fetch(`${URL}/manager/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +16,8 @@ export const loginManager = async payload => {
 
 export const getAllApprovals = async payload => {
     const data = await fetch(
-        `${URL}/manager/getAllApprovals?m_id=${payload.m_id}`,
+        // `${URL}/manager/getAllApprovals?m_id=${payload.m_id}`,
+        `${URL}/manager/getAllApprovals`,
         {
             method: 'GET',
             // method: 'POST',
@@ -28,6 +31,7 @@ export const getAllApprovals = async payload => {
         }
     )
     let res = await data.json()
+    console.log(res);
     localStorage.setItem('tickets_m', JSON.stringify(res))
 }
 

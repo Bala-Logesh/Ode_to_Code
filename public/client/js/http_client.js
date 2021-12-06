@@ -32,13 +32,14 @@ export const raiseQuery = async payload => {
         },
         body: JSON.stringify(payload),
     })
-    let res = await data.json()
+    let res = await data.text()
     console.log(res);
 }
 
 export const getAllQueries = async payload => {
     const data = await fetch(
-        `${URL}/client/getAllQueries?c_id=${payload.c_id}`,
+        // `${URL}/client/getAllQueries?c_id=${payload.c_id}`,
+        `${URL}/client/getAllQueries`,
         {
             method: 'GET',
             // method: 'POST',
@@ -49,7 +50,22 @@ export const getAllQueries = async payload => {
         }
     )
     let res = await data.json()
-    localStorage.setItem('queries', res)
+    localStorage.setItem('queries', JSON.stringify(res))
 }
 
-
+export const downloadPDF = async payload => {
+    const data = await fetch(
+        `${URL}/letter/download?fileName=${payload.fileName}`,
+        {
+            method: 'GET',
+            // method: 'POST',
+            // body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
+    let res = await data.text()
+    console.log(res)
+    alert('PDF Downloaded')
+}

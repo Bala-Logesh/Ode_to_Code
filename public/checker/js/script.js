@@ -5,7 +5,7 @@ import {
     httpStep4,
     httpStep5,
     getStatus,
-    downloadPDF,
+    generateLetter,
 } from './http_checker.js'
 
 const step1 = document.querySelector('#step1')
@@ -14,7 +14,7 @@ const step3 = document.querySelector('#step3')
 const step4 = document.querySelector('#step4')
 const step5 = document.querySelector('#step5')
 const refresh = document.querySelector('#refresh')
-const download = document.querySelector('#download')
+const generate = document.querySelector('#generate')
 
 const performStep1 = async () => {
     const s1 = {
@@ -91,10 +91,27 @@ const performStep5 = async () => {
 
 performStep1()
 
-download.addEventListener('click', async () => {
-    await downloadPDF({
-        fileName: `${localStorage.getItem('t_id')}.pdf`,
-    })
+generate.addEventListener('click', async () => {
+    // let payload = {}
+    // if (l_no === 1 || l_no === 2) {
+    //     payload = {
+    //         l_id: l_no,
+    //         c_id: localStorage.getItem('client_id'),
+    //         l_var: localStorage.getItem('l_var')
+    //     }
+    // } else if (l_no === 3) {
+    //     payload = {
+    //         l_id: l_no,
+    //         c_id: localStorage.getItem('client_id'),
+    //         l_var: localStorage.getItem('l_var'),
+    //     }
+    // }
+    let payload = {
+        l_id: localStorage.getItem('l_no'),
+        c_id: localStorage.getItem('client_id'),
+        l_var: JSON.parse(localStorage.getItem('l_var')),
+    }
+    generateLetter(payload)
 })
 
 refresh.addEventListener('click', async () => {

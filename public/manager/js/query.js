@@ -9,7 +9,7 @@ const reject = document.querySelector('#reject')
 const urlParams = new URLSearchParams(window.location.search)
 const t_id = urlParams.get('t_id')
 
-const ticket = JSON.parse(localStorage.getItem('tickets_m')).filter(tkt => tkt.approval_id === parseInt(t_id)
+const ticket = JSON.parse(localStorage.getItem('tickets_m')).filter(tkt => tkt.t_id === parseInt(t_id)
 )[0]
 
 const showDetails = () => {
@@ -51,16 +51,16 @@ reject.addEventListener('click', async () => {
     window.location.href = 'approvals.html'
 })
 
-updateStatus = () => {
+// updateStatus = () => {
     
-    if (localStorage.getItem(ticket.approval_id)) {
-        JSON.parse(localStorage.getItem('tickets_m')).map(tkt => {
-            if (tkt.approval_id === ticket.approval_id) {
-                if (localStorage.getItem(ticket.approval_id) === 'Approved') {
+//     if (localStorage.getItem(ticket.approval_id)) {
+//         JSON.parse(localStorage.getItem('tickets_m')).map(tkt => {
+//             if (tkt.approval_id === ticket.approval_id) {
+//                 if (localStorage.getItem(ticket.approval_id) === 'Approved') {
                     
-                }
-            }
-        })
+//                 }
+//             }
+//         })
 
-    }
-}
+//     }
+// }

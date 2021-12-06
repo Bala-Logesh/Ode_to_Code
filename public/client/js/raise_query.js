@@ -22,10 +22,11 @@ letters.map(letter => {
 subQueryBtn.addEventListener('click', async () => {
     if (letter_type.value !== 'default' && localStorage.getItem('client_id')) {
         let query = {
-            c_id: JSON.parse(localStorage.getItem('client_id')),
+            c_id: localStorage.getItem('client_id'),
             query: letter_type.value,
             desc: desc.value,
         }
+        console.log(query);
         await raiseQuery(query)
         let queries = JSON.parse(localStorage.getItem('queries')) || []
         queries.push(query)

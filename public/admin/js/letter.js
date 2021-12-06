@@ -6,7 +6,7 @@ const var2 = document.querySelector('#var2')
 const date = document.querySelector('#date')
 const btnDiv = document.querySelector('#btnDiv')
 const getLetterVarBtn = document.querySelector('#getLetterVarBtn')
-const postLetter = document.querySelector('#postLetter')
+const saveLetterDetails = document.querySelector('#saveLetterDetails')
 
 const letters = [
     '30th Day  - indicia removal - Singapore address',
@@ -15,7 +15,7 @@ const letters = [
     '30th day Letter - Singapore address',
     '60th day Letter - Foreign address',
     '60th day Letter - Singapore address',
-    'WB/W9 Reject letter',
+    'W8/W9 Reject letter',
     '90th Day  - US reclaraint Letter',
     'POA confirmation Letter',
     'Authorisation form rejection letter',
@@ -57,22 +57,14 @@ const populateVariables = () => {
     })
 }
 
-postLetter.addEventListener('click', () => {
-    let payload = {}
+saveLetterDetails.addEventListener('click', () => {
+    let l_var
     if (l_no === 1 || l_no === 2) {
-        payload = {
-            l_id: l_no,
-            c_id: localStorage.getItem('client_id'),
-            l_var: [date.value]
-        }
+        l_var = [date.value]
     } else if (l_no === 3) {
-        payload = {
-            l_id: l_no,
-            c_id: localStorage.getItem('client_id'),
-            l_var: [var1.value, var2.value, date.value],
-        }
+        l_var = [var1.value, var2.value, date.value]
     }
-    generateLetter(payload)
+    localStorage.setItem('l_var', JSON.stringify(l_var))
     window.location.href = '/checker/index.html'
 })
 

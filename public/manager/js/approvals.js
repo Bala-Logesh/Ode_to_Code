@@ -1,4 +1,8 @@
-let queries = JSON.parse(localStorage.getItem('queries')) || []
+import { getAllApprovals } from "./http_manager.js"
+
+getAllApprovals({
+    m_id: localStorage.getItem('m_id')
+})
 
 const tickets = document.querySelector('#tickets')
 const ticket = JSON.parse(localStorage.getItem('tickets_m'))
@@ -22,7 +26,7 @@ const createRow = (tkt, index) => {
                 ${tkt.status}
             </td>
             <td class='link'><a href="tkt.html?t_id=${
-                tkt.approval_id
+                tkt.t_id
             }">View Details</a></td>
         </tr>
     `

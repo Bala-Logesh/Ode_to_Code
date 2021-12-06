@@ -1,12 +1,27 @@
 import express from 'express'
 import path from 'path'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 import admin from './routes/admin.js'
 import checker from './routes/checker.js'
 import client from './routes/client.js'
 import manager from './routes/manager.js'
 import letter from './routes/letter.js'
+dotenv.config()
 
 const app = express()
+
+mongoose
+    .connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => {
+        console.log('Successfully connected to the database')
+    })
+    .catch(err => {
+        console.log('MongoDB connection error: ', err)
+    })
 
 const __dirname = path.resolve()
 
@@ -27,15 +42,14 @@ app.use('/client', client)
 app.use('/manager', manager)
 app.use('/letter', letter)
 
-app.get('/test', (req, res) => {
-    console.log('Invoked')
-    res.send({ data: 'Server is up and running' })
-})
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-const PORT = 3000
+app.get('/test', (req, res) => {
+    res.send({ data: 'Server is up and running' })
+})
+
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

@@ -77,19 +77,15 @@ export const getStatus = async payload => {
     console.log(res)
 }
 
-export const downloadPDF = async payload => {
-    const data = await fetch(
-        `${URL}/letter/download?fileName=${payload.fileName}`,
-        {
-            method: 'GET',
-            // method: 'POST',
-            // body: JSON.stringify(payload),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-    )
+export const generateLetter = async payload => {
+    const data = await fetch(`${URL}/letter/generateLetter`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `${payload.a_id}`,
+        },
+        body: JSON.stringify(payload),
+    })
     let res = await data.text()
     console.log(res)
-    alert('PDF Downloaded')
 }

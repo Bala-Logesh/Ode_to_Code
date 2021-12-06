@@ -1,39 +1,58 @@
 import express from 'express'
+import Agent from '../models/agent.js'
+import Client from '../models/client.js'
+import LetterVar from '../models/letter_vars.js'
+import Letter from '../models/letter.js'
+
 const router = express.Router()
 
-router.post('/login', (req, res) => {
-    console.log(req.body)
-    res.send({ a_id: 5464353245 })
+const checkHeaders = (req, res, next) => {
+    if (req.headers.authorization) next()
+}
+
+// @route POST /admin/
+// @desc Create a new agent
+// @access Public
+router.post('/', async (req, res) => {
+    const agent = new Agent(req.body)
+    const data = await agent.save(req.body)
+    res.send(data)
 })
 
-router.post('/getCustomerDetails', (req, res) => {
-    console.log(req.body, req.headers)
-    res.send({
-        firstname: 'Bala',
-        lastname: 'Logesh',
-        email: 'bala@gmail.com',
-        address:
-            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil, aperiam.',
-        nationality: 'US',
-        phone_no: 9999999999,
-    })
+// @route POST /admin/login?soeid=soeid
+// @desc Login a agent and return id
+// @access Public
+router.post('/login', async (req, res) => {
+    const soeid = req.query.soeid
+    const agent = await Agent.findOneBySoeid(soeid)
+    if(agent.length > 0) res.send({ a_id: agent[0]._id })
 })
 
-router.post('/getLetterVariables', (req, res) => {
-    console.log(req.body, req.headers)
-    res.send([
-        {
-            variables:
-                'Address, Telephone Number, Country of Birth, Nationality / Permanent Resident status',
-        },
-        {
-            variables:
-                'Form W-8BEN/Form W-9, Reasonable written taplanation (applicable if completing w-BBEN), Copy of Passport (please sign on copy & applicable to Non-Singaporean), Abandonment of Lawful Permanent Resident status, Certificate of Loss of Nationality',
-        },
-        {
-            variables: 'Embed Date',
-        },
-    ])
+// @route GET /admin/getCustomerDetails?customer_id=customer_id
+// @desc Returns the customer details
+// @access Protected
+router.get('/getCustomerDetails', checkHeaders, async (req, res) => {
+    const client = await Client.findById(req.query.customer_id).select('-password')
+    res.send([client])
+})
+
+// @route GET /admin/getLetterVariables?letter_name=letter_name
+// @desc Returns the customer details
+// @access Protected
+router.post('/getLetterVariables', checkHeaders, async (req, res) => {
+    const letter = await Letter.findOneByLetterName(req.query.letter_name).select('l_id')
+    if (letter.length > 0) {
+        let l_id = letter[0].l_id
+        const variables = await LetterVar.findOneByLetterId(l_id).select('variable')
+        let output = []
+        variables.map(v => {
+            let obj = {
+                'variables': v.variable
+            }
+            output.push(obj)
+        })
+        res.send(output)
+    }
 })
 
 export default router
