@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "61ae17cccb88cff5ab853aa1"
+  },
+  "l_id": 1,
+  "letter_name": "30th Day  - indicia removal - Singapore address",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae17e6cb88cff5ab853aa3"
+  },
+  "l_id": 2,
+  "letter_name": "30th Day  - indicia removal - Foreign address",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae17f0cb88cff5ab853aa5"
+  },
+  "l_id": 3,
+  "letter_name": "30th day Letter - Foreign address",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae17fdcb88cff5ab853aa7"
+  },
+  "l_id": 4,
+  "letter_name": "30th day Letter - Singapore address",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae1807cb88cff5ab853aa9"
+  },
+  "l_id": 5,
+  "letter_name": "60th day Letter - Foreign address",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae1810cb88cff5ab853aab"
+  },
+  "l_id": 6,
+  "letter_name": "60th day Letter - Singapore address",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae18332848d939ab8bd0be"
+  },
+  "l_id": 7,
+  "letter_name": "W8/W9 Reject letter",
+  "category": "Demo Maintainence",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae184a2848d939ab8bd0c0"
+  },
+  "l_id": 8,
+  "letter_name": "90th Day  - US reclaraint Letter",
+  "category": "Fatca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae185d2848d939ab8bd0c2"
+  },
+  "l_id": 9,
+  "letter_name": "POA confirmation Letter",
+  "category": "POA",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae18752848d939ab8bd0c4"
+  },
+  "l_id": 10,
+  "letter_name": "Authorisation form rejection letter",
+  "category": "Citi Biz Ac Closure",
+  "__v": 0
+}]

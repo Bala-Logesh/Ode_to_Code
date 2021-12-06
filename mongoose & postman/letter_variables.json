@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "61ae19d874dd7c7e98d57a63"
+  },
+  "l_id": 1,
+  "variable": "Embed_Date",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae19ec74dd7c7e98d57a65"
+  },
+  "l_id": 2,
+  "variable": "Embed_Date",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae1a2374dd7c7e98d57a69"
+  },
+  "l_id": 3,
+  "variable": "Address, Telephone Number, Country of Birth, Nationality / Permanent Resident status",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae1a2c74dd7c7e98d57a6b"
+  },
+  "l_id": 3,
+  "variable": "Form W-8BEN/Form W-9, Reasonable written taplanation (applicable if completing w-BBEN), Copy of Passport (please sign on copy & applicable to Non-Singaporean), Abandonment of Lawful Permanent Resident status, Certificate of Loss of Nationality",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae6ca08192653acf6cfe95"
+  },
+  "l_id": 3,
+  "variable": "Embed_Date",
+  "__v": 0
+}]

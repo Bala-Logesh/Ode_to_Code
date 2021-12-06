@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "61adf933c75f57d4f9f5bcaa"
+  },
+  "firstname": "Bala",
+  "lastname": "S",
+  "email": "bala@gmail.com",
+  "address": "No 12, Apt, Chennai",
+  "nationality": "India",
+  "phone_no": "9090909090",
+  "password": "$2a$10$..wqG/QvlRo9f7IWxe/HcuxS1wPlwyNvPJny1KVl//.KSXuce9pMS",
+  "__v": 0,
+  "ratings": 5
+}]
