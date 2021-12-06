@@ -1,7 +1,5 @@
 import { approveTkt, rejectTkt } from './http_manager.js'
 
-const tid = document.querySelector('#tid')
-const cusid = document.querySelector('#cusid')
 const ticket_details = document.querySelector('#ticket_details')
 const approve = document.querySelector('#approve')
 const reject = document.querySelector('#reject')
@@ -9,7 +7,8 @@ const reject = document.querySelector('#reject')
 const urlParams = new URLSearchParams(window.location.search)
 const t_id = urlParams.get('t_id')
 
-const ticket = JSON.parse(localStorage.getItem('tickets_m')).filter(tkt => tkt.t_id === parseInt(t_id)
+const ticket = JSON.parse(localStorage.getItem('tickets_m')).filter(
+    tkt => tkt.t_id === t_id
 )[0]
 
 const showDetails = () => {
@@ -37,7 +36,7 @@ showDetails()
 
 approve.addEventListener('click', async () => {
     await approveTkt({
-        m_id: JSON.parse(localStorage.getItem('m_id')),
+        m_id: localStorage.getItem('m_id'),
         t_id: ticket.t_id,
     })
     window.location.href = 'approvals.html'
@@ -45,22 +44,8 @@ approve.addEventListener('click', async () => {
 
 reject.addEventListener('click', async () => {
     await rejectTkt({
-        m_id: JSON.parse(localStorage.getItem('m_id')),
+        m_id: localStorage.getItem('m_id'),
         t_id: ticket.t_id,
     })
     window.location.href = 'approvals.html'
 })
-
-// updateStatus = () => {
-    
-//     if (localStorage.getItem(ticket.approval_id)) {
-//         JSON.parse(localStorage.getItem('tickets_m')).map(tkt => {
-//             if (tkt.approval_id === ticket.approval_id) {
-//                 if (localStorage.getItem(ticket.approval_id) === 'Approved') {
-                    
-//                 }
-//             }
-//         })
-
-//     }
-// }

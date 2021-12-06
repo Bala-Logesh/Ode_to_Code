@@ -10,10 +10,12 @@ const router = express.Router()
 // @desc Login an existing client
 // @access Public
 router.post('/login', async (req, res) => {
-    let client = await Client.findOneByEmail(req.body.email).limit(1)
-    if (client.length > 0) {
-        const isMatch = await bcrypt.compare(req.body.pwd, client[0].password)
-        if (isMatch) res.send({ client_id: client[0]._id })
+    let clients = await Client.findOneByEmail(req.body.email).limit(1)
+    if (clients.length > 0) {
+        const isMatch = await bcrypt.compare(req.body.pwd, clients[0].password)
+        const id = clients[0]._id
+        const client = await Client.findById(id).select('-password')
+        if (isMatch) res.send({ client_id: id, client })
     }
 })
 
@@ -25,8 +27,9 @@ router.post('/signup', async (req, res) => {
     const hash = await bcrypt.hash(req.body.password, salt)
     req.body.password = hash
 
-    const client = await Client.create(req.body)
-    res.send({ client_id: client._id })
+    const data = await Client.create(req.body)
+    const client = await Client.findById(data._id).select('-password')
+    res.send({ client_id: client._id, client })
 })
 
 // @route POST /client/raiseQuery
@@ -46,7 +49,7 @@ router.post('/raiseQuery', async (req, res) => {
     res.send('Query Posted')
 })
 
-// @route POST /client/getAllQueries?c_id=c_id
+// @route GET /client/getAllQueries?c_id=c_id
 // @desc Get all the queries of a client
 // @access Public
 router.get('/getAllQueries', async (req, res) => {
@@ -56,6 +59,7 @@ router.get('/getAllQueries', async (req, res) => {
         const a_id = query.a_id
         let agent = await Agent.findById(a_id)
         let newQuery = {
+            _id: query._id,
             query: query.query,
             desc: query.desc,
             date: query.timestamp,

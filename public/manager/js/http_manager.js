@@ -1,9 +1,7 @@
 import { URL } from '/js/data.js'
 
 export const loginManager = async payload => {
-    console.log(payload)
-    // const data = await fetch(`${URL}/manager/login?soeid=${payload.soeid}`, {
-    const data = await fetch(`${URL}/manager/login`, {
+    const data = await fetch(`${URL}/manager/login?soeid=${payload.soeid}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -16,14 +14,9 @@ export const loginManager = async payload => {
 
 export const getAllApprovals = async payload => {
     const data = await fetch(
-        // `${URL}/manager/getAllApprovals?m_id=${payload.m_id}`,
-        `${URL}/manager/getAllApprovals`,
+        `${URL}/manager/getAllApprovals?m_id=${payload.m_id}`,
         {
             method: 'GET',
-            // method: 'POST',
-            // body: JSON.stringify({
-            //     customer_id: payload.m_id,
-            // }),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `${payload.m_id}`,
@@ -31,7 +24,6 @@ export const getAllApprovals = async payload => {
         }
     )
     let res = await data.json()
-    console.log(res);
     localStorage.setItem('tickets_m', JSON.stringify(res))
 }
 
@@ -47,7 +39,7 @@ export const approveTkt = async payload => {
         }),
     })
     let res = await data.text()
-    localStorage.setItem(payload.t_id, 'Approved')
+    localStorage.setItem('Approved', res)
 }
 
 export const rejectTkt = async payload => {
@@ -62,5 +54,5 @@ export const rejectTkt = async payload => {
         }),
     })
     let res = await data.text()
-    localStorage.setItem(payload.t_id, 'Rejected')
+    localStorage.setItem('Rejected', res)
 }

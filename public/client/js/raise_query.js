@@ -1,15 +1,15 @@
-import { raiseQuery } from './http_client.js'
+import { getAllQueries, raiseQuery } from './http_client.js'
 
 const letter_type = document.querySelector('#letter_type')
 const desc = document.querySelector('#desc')
 const subQueryBtn = document.querySelector('#subQueryBtn')
 
 const letters = [
-    { key: 'fatca', value: 'FATCA' },
-    { key: 'poa', value: 'Power of Attorney' },
-    { key: 'demo_maintainence', value: 'Demo Maintenance' },
-    { key: 'biz', value: 'Citi Biz Ac/Closure' },
-    { key: 'mpp', value: 'MPP - Citibiz' },
+    { key: 'Fatca', value: 'FATCA' },
+    { key: 'POA', value: 'Power of Attorney' },
+    { key: 'Demo Maintainence', value: 'Demo Maintenance' },
+    { key: 'Citi Biz Ac Closure', value: 'Citi Biz Ac/Closure' },
+    { key: 'MPP', value: 'MPP - Citibiz' },
 ]
 
 letters.map(letter => {
@@ -26,11 +26,10 @@ subQueryBtn.addEventListener('click', async () => {
             query: letter_type.value,
             desc: desc.value,
         }
-        console.log(query);
         await raiseQuery(query)
-        let queries = JSON.parse(localStorage.getItem('queries')) || []
-        queries.push(query)
-        localStorage.setItem('queries', JSON.stringify(queries))
+        await getAllQueries({
+            c_id: localStorage.getItem('client_id'),
+        })
         window.location.href = 'track_query.html'
     }
 })

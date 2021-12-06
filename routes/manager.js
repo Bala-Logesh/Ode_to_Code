@@ -101,21 +101,19 @@ router.get('/getAllApprovals', async (req, res) => {
         const customer = await Client.findById(ticket.c_id)
         const agent = await Agent.findById(ticket.a_id)
         const letter = await Letter.findOneByLetterId(ticket.l_id)
-        
         let obj = {
             approval_id: approval._id,
-            t_id: ticket.t_id,
+            t_id: ticket._id,
             cust_firstname: customer.firstname,
             cust_lastname: customer.lastname,
             agent_firstname: agent.firstname,
             agent_lastname: agent.lastname,
             agent_soeid: agent.soeid,
             query: ticket.query,
-            letter_name: letter.letter_name,
+            letter_name: letter[0].letter_name,
             reason: ticket.desc,
             status: ticket.status,
         }
-
         output.push(obj)
     }
     res.send(output)

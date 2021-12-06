@@ -49,9 +49,19 @@
                     id="customer_details"
                 ></table>
 
-                <a href="letter.html" class="button hidden" id="createLetter">
-                    Create a letter
-                </a>
+                <div class="customer-form flex-col">
+                    <input
+                        type="text"
+                        class="hidden"
+                        name="t_id"
+                        id="tid"
+                        placeholder="Enter Ticket id"
+                    />
+
+                    <button class="button hidden" id="createLetter">
+                        Create a letter
+                    </button>
+                </div>
             </div>
         </div>
         <script src="./js/script.js"></script>

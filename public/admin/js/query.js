@@ -1,7 +1,8 @@
-import { getCustomerData } from "./http_admin.js"
+import { getCustomerData } from './http_admin.js'
 
 const cid = document.querySelector('#cid')
 const cusid = document.querySelector('#cusid')
+const tid = document.querySelector('#tid')
 const customer_details = document.querySelector('#customer_details')
 const cDetailsBtn = document.querySelector('#cDetailsBtn')
 const heading = document.querySelector('#heading')
@@ -10,18 +11,26 @@ const createLetter = document.querySelector('#createLetter')
 cDetailsBtn.addEventListener('click', async () => {
     const data = {
         a_id: localStorage.getItem('a_id'),
-        customer_id: cusid.value
+        customer_id: cusid.value,
     }
     cid.innerHTML = '- ' + cusid.value
     await getCustomerData(data)
     heading.classList.remove('hidden')
     showDetails()
+    tid.classList.remove('hidden')
     createLetter.classList.remove('hidden')
+})
+
+createLetter.addEventListener('click', () => {
+    if (tid.value !== null) {
+        localStorage.setItem('t_id', tid.value)
+        window.location.href = '/admin/letter.html'
+    }
 })
 
 const showDetails = () => {
     if (localStorage.getItem('customer_a')) {
-        const customer_a = JSON.parse(localStorage.getItem('customer_a'))
+        const customer_a = JSON.parse(localStorage.getItem('customer_a'))[0]
 
         createRow('Customer Id', cusid.value)
         createRow('First Name', customer_a.firstname)

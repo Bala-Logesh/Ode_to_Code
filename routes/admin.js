@@ -39,7 +39,7 @@ router.get('/getCustomerDetails', checkHeaders, async (req, res) => {
 // @route GET /admin/getLetterVariables?letter_name=letter_name
 // @desc Returns the customer details
 // @access Protected
-router.post('/getLetterVariables', checkHeaders, async (req, res) => {
+router.get('/getLetterVariables', checkHeaders, async (req, res) => {
     const letter = await Letter.findOneByLetterName(req.query.letter_name).select('l_id')
     if (letter.length > 0) {
         let l_id = letter[0].l_id

@@ -1,5 +1,6 @@
 import express from 'express'
 import Letter from '../models/letter.js'
+import Query from '../models/query.js'
 import LetterVar from '../models/letter_vars.js'
 
 const router = express.Router()
@@ -25,7 +26,11 @@ router.post('/variables', async (req, res) => {
 // @route POST /letter/generateLetter
 // @desc Generate the letter
 // @access Public
-router.post('/generateLetter', (req, res) => {
+router.post('/generateLetter', async (req, res) => {
+    const ticket = await Query.findById(req.body.t_id)
+    await Query.findByIdAndUpdate(ticket._id, {
+        isLetterGenerated: true,
+    })
     res.send('Letter Generated')
 })
 

@@ -9,6 +9,7 @@ const router = express.Router()
 // @desc Agent Match Validation
 // @access Public
 router.post('/step0', async (req, res) => {
+    console.log(req.body);
     const t_id = req.body.t_id
     const a_id = req.body.a_id
 

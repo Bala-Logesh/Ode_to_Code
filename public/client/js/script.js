@@ -10,5 +10,7 @@ if (client_id) {
 
 title.addEventListener('click', () => {
     localStorage.removeItem('client_id')
+    localStorage.removeItem('queries')
+    localStorage.removeItem('customer')
     window.location.href = 'index.html'
 })

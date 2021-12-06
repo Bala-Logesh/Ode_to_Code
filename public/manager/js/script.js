@@ -10,5 +10,9 @@ if (client_id) {
 
 title.addEventListener('click', () => {
     localStorage.removeItem('m_id')
+    localStorage.removeItem('tickets_m')
+    localStorage.removeItem('Approval')
+    localStorage.removeItem('Approved')
+    localStorage.removeItem('Rejected')
     window.location.href = 'index.html'
 })

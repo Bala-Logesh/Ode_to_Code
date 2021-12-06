@@ -18,10 +18,9 @@ signupBtn.addEventListener('click', async () => {
         address: address.value,
         nationality: nationality.value,
         phone_no: phone.value,
-        pwd: password.value,
+        password: password.value,
     }
 
-    localStorage.setItem('customer', JSON.stringify(customer))
     await signUpCustomer(customer)
     window.location.href = 'details.html'
 })

@@ -15,73 +15,81 @@ const step4 = document.querySelector('#step4')
 const step5 = document.querySelector('#step5')
 const refresh = document.querySelector('#refresh')
 const generate = document.querySelector('#generate')
+const title = document.querySelector('#title')
 
-const performStep1 = async () => {
-    const s1 = {
+title.addEventListener('click', () => {
+    localStorage.removeItem('Checking')
+    localStorage.removeItem('refreshed')
+    window.location.href = 'index.html'
+})
+
+
+const getValsFromLS = () => {
+    return {
         c_id: localStorage.getItem('client_id'),
         a_id: localStorage.getItem('a_id'),
-        l_id: localStorage.getItem('l_id'),
+        l_id: localStorage.getItem('l_no'),
+        t_id: localStorage.getItem('t_id'),
     }
+}
+
+const performStep1 = async () => {
+    const s1 = getValsFromLS()
 
     await httpStep1(s1)
     setTimeout(() => {
-        step1.innerHTML = 'Completed'
-        performStep2()
-    }, 3000)
+        if (localStorage.getItem('Checking') === 'true') {
+            step1.innerHTML = 'Completed'
+            performStep2()
+        }
+    }, 2000)
 }
 
 const performStep2 = async () => {
-    const s2 = {
-        c_id: localStorage.getItem('client_id'),
-        a_id: localStorage.getItem('a_id'),
-        l_id: localStorage.getItem('l_id'),
-    }
+    const s2 = getValsFromLS()
 
     await httpStep2(s2)
     setTimeout(() => {
-        step2.innerHTML = 'Completed'
-        performStep3()
-    }, 3000)
+        if (localStorage.getItem('Checking') === 'true') {
+            step2.innerHTML = 'Completed'
+            performStep3()
+        }
+    }, 2000)
 }
 
 const performStep3 = async () => {
-    const s3 = {
-        c_id: localStorage.getItem('client_id'),
-        a_id: localStorage.getItem('a_id'),
-        l_id: localStorage.getItem('l_id'),
-    }
+    const s3 = getValsFromLS()
 
     await httpStep3(s3)
     setTimeout(() => {
-        step3.innerHTML = 'Completed'
-        performStep4()
-    }, 3000)
+        if (localStorage.getItem('Checking') === 'true') {
+            step3.innerHTML = 'Completed'
+            performStep4()
+        }
+    }, 2000)
 }
 
 const performStep4 = async () => {
-    const custiomer = JSON.parse(localStorage.getItem('customer_a'))
+    const customer = JSON.parse(localStorage.getItem('customer_a'))[0]
     const s4 = {
-        firstname: custiomer.firstname,
-        lastname: custiomer.lastname,
-        address: custiomer.address,
-        nationality: custiomer.nationality,
-        phone_no: custiomer.phone_no,
+        firstname: customer.firstname,
+        lastname: customer.lastname,
+        address: customer.address,
+        nationality: customer.nationality,
+        phone_no: customer.phone_no,
     }
 
     await httpStep4(s4)
     setTimeout(() => {
-        step4.innerHTML = 'Completed'
-        performStep5()
-    }, 3000)
+        if (localStorage.getItem('Checking') === 'true') {
+            step4.innerHTML = 'Completed'
+            performStep5()
+        }
+    }, 2000)
 }
 
 const performStep5 = async () => {
-    const custiomer = JSON.parse(localStorage.getItem('customer_a'))
-    const s5 = {
-        c_id: localStorage.getItem('client_id'),
-        a_id: localStorage.getItem('a_id'),
-        l_id: localStorage.getItem('l_id'),
-    }
+    const s5 = getValsFromLS()
 
     setTimeout(() => {
         step5.innerHTML = 'Pending Approval'
@@ -89,29 +97,16 @@ const performStep5 = async () => {
     await httpStep5(s5)
 }
 
-performStep1()
+// performStep1()
 
 generate.addEventListener('click', async () => {
-    // let payload = {}
-    // if (l_no === 1 || l_no === 2) {
-    //     payload = {
-    //         l_id: l_no,
-    //         c_id: localStorage.getItem('client_id'),
-    //         l_var: localStorage.getItem('l_var')
-    //     }
-    // } else if (l_no === 3) {
-    //     payload = {
-    //         l_id: l_no,
-    //         c_id: localStorage.getItem('client_id'),
-    //         l_var: localStorage.getItem('l_var'),
-    //     }
-    // }
     let payload = {
         l_id: localStorage.getItem('l_no'),
         c_id: localStorage.getItem('client_id'),
-        l_var: JSON.parse(localStorage.getItem('l_var')),
+        l_var: localStorage.getItem('l_var'),
+        t_id: localStorage.getItem('t_id'),
     }
-    generateLetter(payload)
+    await generateLetter(payload)
 })
 
 refresh.addEventListener('click', async () => {
@@ -121,6 +116,7 @@ refresh.addEventListener('click', async () => {
 
     if (localStorage.getItem('refreshed') === 'Approved') {
         step5.innerHTML = 'Approved'
+        generate.classList.remove('hidden')
     } else if (localStorage.getItem('refreshed') === 'Rejected') {
         step5.innerHTML = 'Rejected'
     } else {

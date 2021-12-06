@@ -17,10 +17,6 @@ export const getCustomerData = async payload => {
         `${URL}/admin/getCustomerDetails?customer_id=${payload.customer_id}`,
         {
             method: 'GET',
-            // method: 'POST',
-            // body: JSON.stringify({
-            //     customer_id: payload.customer_id,
-            // }),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `${payload.a_id}`,
@@ -36,10 +32,6 @@ export const getLetterVariables = async payload => {
         `${URL}/admin/getLetterVariables?letter_name=${payload.letter_name}`,
         {
             method: 'GET',
-            // method: 'POST',
-            // body: JSON.stringify({
-            //     letter_name: payload.letter_name,
-            // }),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `${payload.a_id}`,
@@ -48,5 +40,4 @@ export const getLetterVariables = async payload => {
     )
     let res = await data.json()
     localStorage.setItem('letter_vars', JSON.stringify(res))
-    console.log(res);
 }

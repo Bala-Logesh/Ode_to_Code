@@ -1,4 +1,4 @@
-import { getLetterVariables, generateLetter } from './http_admin.js'
+import { getLetterVariables } from './http_admin.js'
 
 const letter_type = document.querySelector('#letter_type')
 const var1 = document.querySelector('#var1')
@@ -65,13 +65,14 @@ saveLetterDetails.addEventListener('click', () => {
         l_var = [var1.value, var2.value, date.value]
     }
     localStorage.setItem('l_var', JSON.stringify(l_var))
+
     window.location.href = '/checker/index.html'
 })
 
 getLetterVarBtn.addEventListener('click', async () => {
     if (letter_type.value !== 'default' && localStorage.getItem('a_id')) {
         let query = {
-            a_id: JSON.parse(localStorage.getItem('a_id')),
+            a_id: localStorage.getItem('a_id'),
             letter_name: letter_type.value,
         }
         l_no = letters.indexOf(letter_type.value) + 1

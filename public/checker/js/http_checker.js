@@ -1,5 +1,11 @@
 import { URL } from '/js/data.js'
 
+const updatingChecking = (res, val) => {
+    if (res === val) {
+        localStorage.setItem('Checking', true)
+    } else localStorage.setItem('Checking', false)
+}
+
 export const httpStep1 = async payload => {
     const data = await fetch(`${URL}/checker/step0`, {
         method: 'POST',
@@ -8,8 +14,8 @@ export const httpStep1 = async payload => {
         },
         body: JSON.stringify(payload),
     })
-    let res = await data
-    console.log(res)
+    let res = await data.text()
+    updatingChecking(res, 'Agent Match Validated')
 }
 
 export const httpStep2 = async payload => {
@@ -20,8 +26,8 @@ export const httpStep2 = async payload => {
         },
         body: JSON.stringify(payload),
     })
-    let res = await data
-    console.log(res)
+    let res = await data.text()
+    updatingChecking(res, 'Query Info Validated')
 }
 
 export const httpStep3 = async payload => {
@@ -32,8 +38,8 @@ export const httpStep3 = async payload => {
         },
         body: JSON.stringify(payload),
     })
-    let res = await data
-    console.log(res)
+    let res = await data.text()
+    updatingChecking(res, 'Client Past Profile Validated')
 }
 
 export const httpStep4 = async payload => {
@@ -44,8 +50,15 @@ export const httpStep4 = async payload => {
         },
         body: JSON.stringify(payload),
     })
-    let res = await data
-    console.log(res)
+    let res = await data.json()
+    if (
+        res.firstname !== undefined &&
+        res.lastname !== undefined &&
+        res.address !== undefined &&
+        res.nationality !== undefined
+    ) {
+        localStorage.setItem('Checking', true)
+    } else localStorage.setItem('Checking', false)
 }
 
 export const httpStep5 = async payload => {
@@ -57,7 +70,7 @@ export const httpStep5 = async payload => {
         body: JSON.stringify(payload),
     })
     let res = await data.json()
-    console.log(res)
+    localStorage.setItem('Approval', JSON.stringify(res))
 }
 
 export const getStatus = async payload => {
@@ -65,8 +78,6 @@ export const getStatus = async payload => {
         `${URL}/manager/checkStatus?t_id=${payload.t_id}`,
         {
             method: 'GET',
-            // method: 'POST',
-            // body: JSON.stringify(payload),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -74,7 +85,6 @@ export const getStatus = async payload => {
     )
     let res = await data.text()
     localStorage.setItem('refreshed', res)
-    console.log(res)
 }
 
 export const generateLetter = async payload => {
@@ -87,5 +97,5 @@ export const generateLetter = async payload => {
         body: JSON.stringify(payload),
     })
     let res = await data.text()
-    console.log(res)
+    alert(res)
 }

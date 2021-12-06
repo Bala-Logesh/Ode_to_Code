@@ -1,20 +1,13 @@
-import { getAllApprovals } from "./http_manager.js"
-
-getAllApprovals({
-    m_id: localStorage.getItem('m_id')
-})
+import { getAllApprovals } from './http_manager.js'
 
 const tickets = document.querySelector('#tickets')
-const ticket = JSON.parse(localStorage.getItem('tickets_m'))
 
 const createRow = (tkt, index) => {
     const row = document.createElement('tr')
     let col = 'red'
 
-    if (tkt.status === 'Approved') {
+    if (tkt.status === 'Done') {
         col = 'green'
-    } else {
-        col = 'red'
     }
 
     row.innerHTML = `
@@ -33,4 +26,14 @@ const createRow = (tkt, index) => {
     tickets.appendChild(row)
 }
 
-ticket.forEach((tkt, index) => createRow(tkt, index))
+const runAtLoad = async () => {
+    await getAllApprovals({
+        m_id: localStorage.getItem('m_id'),
+    })
+    const ticket = JSON.parse(localStorage.getItem('tickets_m')) || []
+    if (ticket) {
+        ticket.forEach((tkt, index) => createRow(tkt, index))
+    }
+}
+
+runAtLoad()
