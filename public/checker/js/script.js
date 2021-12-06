@@ -92,12 +92,12 @@ const performStep5 = async () => {
     const s5 = getValsFromLS()
 
     setTimeout(() => {
-        step5.innerHTML = 'Pending Approval'
+        step5.innerHTML = 'Approval Pending'
     }, 3000)
     await httpStep5(s5)
 }
 
-// performStep1()
+performStep1()
 
 generate.addEventListener('click', async () => {
     let payload = {
