@@ -20,7 +20,7 @@ mongoose
         console.log('Successfully connected to the database')
     })
     .catch(err => {
-        console.log('MongoDB connection error: ', err)
+        console.log('MongoDB connection error: ', err.message)
     })
 
 const __dirname = path.resolve()
