@@ -26,7 +26,7 @@ const showDetails = () => {
 const createRow = (key, val) => {
     const row = document.createElement('tr')
     row.innerHTML = `
-    <td><h4>${key} :</h4></td>
+    <td><h4>${key}</h4></td>
     <td><p>${val}</p></td>
 `
     ticket_details.appendChild(row)

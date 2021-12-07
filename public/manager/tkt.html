@@ -5,21 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/client.css" />
-        <link rel="stylesheet" href="/css/query.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Manager Website</title>
     </head>
     <body>
         <div class="two-row-grid">
             <div id="navbar" data-page="manager"></div>
-             <div class="container">
+            <div class="manager-main-container flex-col">
                 <h3>This is the details for the ticket <span id="tid"></span></h3>
 
-                <table class="query-details customer-details flex-column" id="ticket_details"></table>
+                <table class="details-table flex-col" id="ticket_details"></table>
 
-                <div class="btn-group flex" style="gap: 20px;">
+                <div class="btn-group flex">
                     <button id="approve" class="success">Approve</button>
                     <button id="reject" class="danger">Reject</button>
                     <a id="back" href="approvals.html" class="button back">Back</a>

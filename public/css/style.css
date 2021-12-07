@@ -147,6 +147,7 @@ textarea {
 
 .table {
     border-collapse: collapse;
+    text-align: center;
 }
 
 .table th,
@@ -209,6 +210,33 @@ textarea {
     padding: 0;
 }
 
+/* ================================================== Manager ================================================== */
+.manager-main-container.flex-col {
+    margin: 20px;
+    justify-content: start;
+    gap: 20px;
+}
+
+/* .manager-main-container .details-table {
+    width: 520px;
+} */
+
+.manager-main-container .details-table tr {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #000;
+}
+
+.manager-main-container .details-table tr:last-child {
+    border-bottom: none;
+}
+
+.btn-group {
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
 /* ================================================== Utils ================================================== */
 .title {
     font-size: 1.3rem;
@@ -240,8 +268,24 @@ textarea {
     color: darkblue;
 }
 
-.hidden{
+.hidden {
     display: none;
+}
+
+.success,
+.danger,
+.back {
+    width: 150px;
+}
+
+.success:hover {
+    background-color: green;
+    color: white;
+}
+
+.danger:hover {
+    background-color: red;
+    color: white;
 }
 
 /* ================================================== Media Queries ================================================== */
@@ -255,6 +299,23 @@ textarea {
     .client-grid > .menu.flex-col .flex-col {
         flex-direction: row;
         flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .manager-main-container .details-table {
+        width: 400px;
+    }
+
+    .manager-main-container > .btn-group {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .manager-main-container > .btn-group button,
+    .manager-main-container > .btn-group .button {
+        width: 90%;
     }
 }
 
@@ -277,7 +338,8 @@ textarea {
         width: 200px;
     }
 
-    .checker-main-container.flex-col {
+    .checker-main-container.flex-col,
+    .manager-main-container.btn-group {
         gap: 20px;
     }
 
