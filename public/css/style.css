@@ -187,6 +187,28 @@ textarea {
     width: 200px;
 }
 
+/* ================================================== Admin ================================================== */
+.admin-main-container.flex-col {
+    margin: 20px;
+    justify-content: start;
+    gap: 20px;
+}
+
+.admin-main-container .details-table tr {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid #000;
+}
+
+.admin-main-container .details-table tr:last-child {
+    border-bottom: none;
+}
+
+.admin-main-container .details-table td {
+    padding: 0;
+}
+
 /* ================================================== Utils ================================================== */
 .title {
     font-size: 1.3rem;
@@ -216,6 +238,10 @@ textarea {
 
 .link:hover {
     color: darkblue;
+}
+
+.hidden{
+    display: none;
 }
 
 /* ================================================== Media Queries ================================================== */

@@ -5,19 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/client.css" />
-        <link rel="stylesheet" href="/css/query.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Admin Website</title>
     </head>
     <body>
         <div class="two-row-grid">
             <div id="navbar" data-page="admin"></div>
-            <div class="container">
+            <div class="admin-main-container flex-col">
                 <h3 class="title">Customer Enquiry</h3>
 
-                <div class="customer-form flex-col">
+                <div class="form flex-col">
                     <input
                         type="text"
                         name="cusid"
@@ -30,16 +28,13 @@
                     </button>
                 </div>
 
-                <h4 style="text-align: center" class="hidden" id="heading">
+                <h4 class="hidden" id="heading">
                     Details for Customer <span id="cid"></span>
                 </h4>
 
-                <table
-                    class="query-details customer-details flex-col"
-                    id="customer_details"
-                ></table>
+                <table class="details-table flex-col" id="customer_details"></table>
 
-                <div class="customer-form flex-col">
+                <div class="form flex-col">
                     <input
                         type="text"
                         class="hidden"

@@ -5,17 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/query.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Admin Website</title>
     </head>
     <body>
         <div class="two-row-grid">
             <div id="navbar" data-page="admin"></div>
-            <div class="container">
+            <div class="admin-main-container flex-col">
                 <h3 class="title">Generate the Letter</h3>
-                <div class="customer-form flex-col">
+                <div class="form flex-col">
                     <select name="letter" id="letter_type">
                         <option value="default" selected>Click and select a letter type</option>
                     </select>
@@ -26,7 +25,7 @@
                     <a href="customer_details.html" class="button">Back</a>
                 </div>
                 <hr>
-                <div class="customer-form flex-col" id="let_vars_container">
+                <div class="form flex-col" id="let_vars_container">
                     <select name="letter" id="var1" class="hidden">
                         <option value="default" selected>Click and select the change</option>
                     </select>
