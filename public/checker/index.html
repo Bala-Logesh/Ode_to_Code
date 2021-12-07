@@ -5,25 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/client.css" />
-        <link rel="stylesheet" href="/css/query.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Checker Website</title>
     </head>
     <body>
         <div class="two-row-grid">            
             <div id="navbar" data-page="checker"></div>
-            <div class="container">
-                <h3>Checking steps in process</h3>
-                <br />
-                <br />
-                <table
-                    class="customer-details flex-column tasks"
-                    id="checker_steps"
-                >
+            <div class="checker-main-container flex-col">
+                <h3 class="title">Checking steps in process</h3>
+                <table id="checker_steps" class="details-table table">
                     <tr>
-                        <th style="width: 200px">Step Number</th>
+                        <th>Step Number</th>
                         <th>Step Name</th>
                         <th>Status</th>
                     </tr>
@@ -53,9 +46,10 @@
                         <td id="step5">Status</td>
                     </tr>
                 </table>
-                <br /><br />
-                <button class="button" id="refresh">Refresh</button>
-                <button class="button hidden" id="generate">Generate Letter</button>
+                <div class="flex">
+                    <button class="button" id="refresh">Refresh</button>
+                    <button class="button hidden" id="generate">Generate Letter</button>
+                </div>
             </div>
         </div>
         

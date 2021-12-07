@@ -136,12 +136,12 @@ textarea {
     gap: 20px;
 }
 
-.client-grid > .client-main-container .c_details td {
+.details-table td {
     padding: 10px;
     margin: 10px;
 }
 
-.client-grid > .client-main-container .c_details td > input {
+.details-table td > input {
     width: 260px;
 }
 
@@ -158,6 +158,33 @@ textarea {
 .question {
     padding-left: 10px;
     border-left: 2px solid #003b70;
+}
+
+/* ================================================== Checker ================================================== */
+.checker-main-container.flex-col {
+    text-align: center;
+    gap: 30px;
+    padding: 10px;
+}
+
+.checker-main-container > .details-table {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.checker-main-container > .details-table tr th:last-child {
+    width: 140px;
+}
+
+.checker-main-container > .flex {
+    width: 100%;
+    max-width: 700px;
+    justify-content: space-evenly;
+}
+
+.checker-main-container > .flex .button {
+    width: 200px;
 }
 
 /* ================================================== Utils ================================================== */
@@ -220,7 +247,21 @@ textarea {
         gap: 20px;
     }
 
-    .client-grid > .client-main-container > .c_details td > input {
+    .client-grid > .client-main-container > .details-table td > input {
         width: 200px;
+    }
+
+    .checker-main-container.flex-col {
+        gap: 20px;
+    }
+
+    .checker-main-container > .flex {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .checker-main-container > .flex .button {
+        width: 90%;
     }
 }
