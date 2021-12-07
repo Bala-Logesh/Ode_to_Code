@@ -35,29 +35,29 @@ const adminReset = () => {
 }
 
 if (page === 'main') {
-    title = `<h3 class='title'>Main Static Navigation</h3>`
+    title = `<h3 class='title' style="cursor: default;">Main Static Navigation</h3>`
 } else if (page === 'client') {
     const client_id = localStorage.getItem('client_id')
-    title = `<h3 class='title pointer' onClick="clientReset()">${
+    title = `<h3 class='title' onClick="clientReset()">${
         client_id ? 'Welcome' : 'Customer Portal'
     }</h3>`
 } else if (page === 'checker') {
-    title = `<h3 class='title pointer' onClick="checkerReset()">Checker Page</h3>`
+    title = `<h3 class='title' onClick="checkerReset()">Checker Page</h3>`
 } else if (page === 'manager') {
     const m_id = localStorage.getItem('m_id')
-    title = `<h3 class='title pointer' onClick="managerReset()">${
+    title = `<h3 class='title' onClick="managerReset()">${
         m_id ? 'Welcome' : 'Manager Portal'
     }</h3>`
 } else if (page === 'admin') {
     const a_id = localStorage.getItem('a_id')
-    title = `<h3 class='title pointer' onClick="adminReset()">${
+    title = `<h3 class='title' onClick="adminReset()">${
         a_id ? 'Welcome' : 'Admin Portal'
     }</h3>`
 }
 
 navbar.innerHTML = `
     <div class='nav-container'>
-        <nav class='navbar flex-jcsb'>
+        <nav class='navbar flex'>
             <a href='/index.html'>
                 <img class='logo' src='../images/citi.png' alt='Citi Logo' />
             </a>

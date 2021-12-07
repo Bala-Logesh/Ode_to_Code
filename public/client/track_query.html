@@ -5,26 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/client.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Customer Website</title>
     </head>
     <body>
         <div class="two-row-grid">
             <div id="navbar" data-page="client"></div>
-            <div class="two-column-grid">
+            <div class="client-grid">
                 <div class="menu flex-col">
                     <h3 class="title">Main Menu</h3>
-                    <br />
-                    <a href="details.html" class="button">Customer Details</a>
-                    <a href="raise_query.html" class="button">Raise a query</a>
-                    <a href="track_query.html" class="button active">Track Queries</a>
-                    <a href="faq.html" class="button">FAQ</a>
+                    <div class="flex-col">
+                        <a href="details.html" class="button">Customer Details</a>
+                        <a href="raise_query.html" class="button">Raise a query</a>
+                        <a href="track_query.html" class="button active">Track Queries</a>
+                        <a href="faq.html" class="button">FAQ</a>
+                    </div>
                 </div>
-                <div class="client-container flex-col">
+                <div class="client-main-container flex-col">
                     <h3 class="title">Track your queries</h3>
-                    <table id="table" class="tasks">
+                    <table id="table" class="c_details table">
                         <tr>
                             <th>Sl. No</th>
                             <th>Query</th>
@@ -33,7 +33,7 @@
                             <th>Details</th>
                             <th>Response</th>
                         </tr>
-                </table>
+                    </table>
                 </div>
             </div>
         </div>

@@ -5,26 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/client.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Customer Website</title>
     </head>
     <body>
         <div class="two-row-grid">
             <div id="navbar" data-page="client"></div>
-            <div class="two-column-grid">
+            <div class="client-grid">
                 <div class="menu flex-col">
                     <h3 class="title">Main Menu</h3>
-                    <br />
-                    <a href="details.html" class="button active">Customer Details</a>
-                    <a href="raise_query.html" class="button">Raise a query</a>
-                    <a href="track_query.html" class="button">Track Queries</a>
-                    <a href="faq.html" class="button">FAQ</a>
+                    <div class="flex-col">
+                        <a href="details.html" class="button active">Customer Details</a>
+                        <a href="raise_query.html" class="button">Raise a query</a>
+                        <a href="track_query.html" class="button">Track Queries</a>
+                        <a href="faq.html" class="button">FAQ</a>
+                    </div>
                 </div>
-                <di class="client-container flex-col">
+                <di class="client-main-container flex-col">
                     <h3 class="title">Customer Details</h3>
-                    <table id="c_details" class="c_details flex-column"></table>
+                    <table id="c_details" class="c_details"></table>
                 </div>
             </div>
         </div>

@@ -5,34 +5,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/client.css" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         <title>Customer Website</title>
     </head>
     <body>
         <div class="two-row-grid">
             <div id="navbar" data-page="client"></div>
-            <div
-                id="form"
-                autocomplete="off"
-                class="form flex-col"
-            >
+            <div id="form" class="form flex-col">
                 <h3 class="title">Customer Sign Up</h3>
-                <div class="flex">
-                    <input
-                        type="text"
-                        name="fname"
-                        id="fname"
-                        placeholder="Enter first name"
-                    />
-                    <input
-                        type="text"
-                        name="lname"
-                        id="lname"
-                        placeholder="Enter last name"
-                    />
-                </div>
+                <input
+                    type="text"
+                    name="fname"
+                    id="fname"
+                    placeholder="Enter first name"
+                />
+                <input
+                    type="text"
+                    name="lname"
+                    id="lname"
+                    placeholder="Enter last name"
+                />
                 <input
                     type="text"
                     name="email"
@@ -71,10 +64,14 @@
                 />
                 <button class="button" id="signupBtn">Sign up</button>
 
-                <p>Already have an account, <a href="index.html" class="link">click here</a> to login</p>
+                <p>
+                    Already have an account,
+                    <a href="index.html" class="link">click here</a> to login
+                </p>
+                <br>
             </div>
         </div>
-        
+
         <script src="/js/navbar.js"></script>
         <script src="./js/signup.js" type="module"></script>
     </body>
