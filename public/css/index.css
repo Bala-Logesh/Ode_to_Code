@@ -116,6 +116,10 @@ textarea {
     width: 150px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .success:hover {
     background-color: green;
     color: white;

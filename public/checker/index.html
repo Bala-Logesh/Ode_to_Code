@@ -12,18 +12,8 @@
         <title>Checker Website</title>
     </head>
     <body>
-        <div class="two-row-grid">
-            <div class="nav-container">
-                <nav class="navbar flex-jcsb">
-                    <a href="/index.html"
-                        ><img
-                            class="logo"
-                            src="../images/citi.png"
-                            alt="Citi Logo"
-                    /></a>
-                    <h3 class="title" id="title" style="cursor: pointer;">Checker Page</h3>
-                </nav>
-            </div>
+        <div class="two-row-grid">            
+            <div id="navbar" data-page="checker"></div>
             <div class="container">
                 <h3>Checking steps in process</h3>
                 <br />
@@ -68,6 +58,8 @@
                 <button class="button hidden" id="generate">Generate Letter</button>
             </div>
         </div>
+        
+        <script src="/js/navbar.js"></script>
         <script src="./js/script.js" type="module"></script>
     </body>
 </html>

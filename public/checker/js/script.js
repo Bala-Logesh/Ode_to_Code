@@ -15,14 +15,6 @@ const step4 = document.querySelector('#step4')
 const step5 = document.querySelector('#step5')
 const refresh = document.querySelector('#refresh')
 const generate = document.querySelector('#generate')
-const title = document.querySelector('#title')
-
-title.addEventListener('click', () => {
-    localStorage.removeItem('Checking')
-    localStorage.removeItem('refreshed')
-    window.location.href = 'index.html'
-})
-
 
 const getValsFromLS = () => {
     return {
